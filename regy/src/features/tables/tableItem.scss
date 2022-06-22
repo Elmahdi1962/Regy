@@ -1,0 +1,18 @@
+.tableItem {
+    background-color: #FDF6F0;
+    height: 90%;
+    padding: 0 5px;
+    text-align: center;
+    width: fit-content;
+    border-radius: 3px;
+
+    &:hover {
+        cursor: pointer;
+        background-color: #ffc19d;
+    }
+
+    p {
+        height: 100%;
+        line-height: 35px;
+    }
+}

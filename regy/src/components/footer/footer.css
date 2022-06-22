@@ -1,0 +1,20 @@
+footer {
+    width: 100%;
+    height: 25px;
+    background-color: #f6b894;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+small {
+    font-weight: bold;
+    color: white;
+}
+
+small:hover {
+    color: rgb(210, 139, 7);
+}
