@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = {};
+const initialState = {'1-1': {name:'hi', tableId: 1, id: '1-1'}};
 
 export const rowsSlice = createSlice({
   name: 'rows',
@@ -15,7 +15,8 @@ export const rowsSlice = createSlice({
   }
 });
 
-export const selectRows = (state) => state.rows;
+export const selectRows = (tableId) => (state) => tableId ? Object.values(state.rows).filter((row) => row.tableId === tableId) : null;
+export const selectHeader = (tableId) => (state) => tableId ? state.tables[tableId].columns : null;
 
 export const { add, remove } = rowsSlice.actions;
 

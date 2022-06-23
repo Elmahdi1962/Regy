@@ -1,16 +1,11 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import {
-  add,
-  remove,
-  selectTables
-} from './tablesSlice';
+import { selectTables } from './tablesSlice';
 import TableItem from './TableItem';
 import './tables.css';
 
 function Tables() {
   const tables = useSelector(selectTables);
-  const dispatch = useDispatch();
 
   return (
     <div className='tablesContainer'>

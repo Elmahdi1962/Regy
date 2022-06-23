@@ -1,8 +1,15 @@
 import React from 'react'
 
-function RowItem({ row, isHeader}) {
+function RowItem({ row=null, isHeader=false, columns=null}) {
   return (
-    <div>RowItem</div>
+    <tr>
+      {
+        isHeader ?
+          columns.map((col) => <th scope="col" key={col}>{col}</th>)
+        :
+          Object.values(row).map((val) => <td key={val}>{val}</td>)
+      }
+    </tr>  
   )
 }
 

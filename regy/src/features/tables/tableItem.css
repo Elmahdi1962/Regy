@@ -15,4 +15,8 @@
 .tableItem p {
   height: 100%;
   line-height: 35px;
+}
+
+.selectedTable {
+  background-color: #ffc19d;
 }/*# sourceMappingURL=tableItem.css.map */
