@@ -24,6 +24,10 @@
       -ms-user-select: none;
           user-select: none;
 }
+.tablesContainer .addTableBtn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgb(20, 15, 15);
+}
 .tablesContainer .addTableBtn span {
   height: 40px;
   width: 100%;
@@ -69,7 +73,7 @@
 }
 
 .addTableBtnDropDown {
-  transition: width 0.2s ease-in-out, opacity 0.3s ease-in-out, visibility 0.5s ease-in-out;
+  transition: width 0.2s ease-in-out, opacity 0.2s ease-in-out, visibility 0.3s ease-in-out;
   color: white;
   opacity: 0;
   visibility: hidden;
@@ -92,15 +96,9 @@
   resize: vertical;
   padding: 3px 5px;
 }
-.addTableBtnDropDown > * {
-  visibility: hidden;
-}
 
 .addTableBtnDropDownOpen {
   visibility: visible;
   width: 200px;
   opacity: 1;
-}
-.addTableBtnDropDownOpen > * {
-  visibility: visible;
 }/*# sourceMappingURL=tables.css.map */

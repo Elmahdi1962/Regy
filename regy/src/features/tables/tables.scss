@@ -21,6 +21,11 @@
         transition: all .3s ease;
         user-select: none;
 
+        &:focus-visible {
+            outline: none;
+            box-shadow: 0 0 0 2px rgb(20, 15, 15);
+        }
+
         span {
             height: 40px;
             width: 100%;
@@ -73,7 +78,7 @@
 }
 
 .addTableBtnDropDown {
-    transition: width .2s ease-in-out, opacity .3s ease-in-out, visibility .5s ease-in-out;
+    transition: width .2s ease-in-out, opacity .2s ease-in-out, visibility .3s ease-in-out;
     color: white;
     opacity: 0;
     visibility: hidden;
@@ -98,15 +103,9 @@
         padding: 3px 5px;
     }
 
-    & > * {
-        visibility: hidden;
-    }
 }
 
 .addTableBtnDropDownOpen {
-    & > * {
-        visibility: visible;
-    }
     visibility: visible;
     width: 200px;
     opacity: 1;
