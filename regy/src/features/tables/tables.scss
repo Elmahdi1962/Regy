@@ -6,8 +6,11 @@
     justify-content: space-between;
     gap: 3px;
     scroll-behavior: smooth;
+    margin: 10px 0;
 
-    .addTableBtn-left{
+    .addTableBtn{
+        position: relative;
+        border: none;
         background-color: #F5C6AA;
         height: 40px;
         width: 40px;
@@ -15,25 +18,30 @@
         text-align: center;
         color: white;
         border-left: 2px solid #faab7d;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         transition: all .3s ease;
+        user-select: none;
 
         span {
             height: 40px;
-            line-height: 100%;
+            width: 100%;
+            display: block;
+            line-height: 125%;
             text-align: center;
             font-size: 2rem;
-            color: inherit;
+            cursor: pointer;
+            transition: transform .5s;
         }
 
         &:hover {
-            //background-color: rgb(244, 206, 184);
             color: #fb8947;
-            cursor: pointer;
             background-color: #f9d9c6;
         }
+    }
+
+    .activeDropDownBtn {
+        transform: rotate(45deg) scale(1.2);
+        color: rgb(186, 61, 33);
+
     }
 
     .tableItemsContainer {
@@ -62,4 +70,44 @@
             background-color: #96652d;
         }
     }
+}
+
+.addTableBtnDropDown {
+    transition: width .2s ease-in-out, opacity .3s ease-in-out, visibility .5s ease-in-out;
+    color: white;
+    opacity: 0;
+    visibility: hidden;
+    width: 0;
+    height: auto;
+    background-color: #fcba93;
+    font-size: 1rem;
+    border-radius: 5px;
+    position: absolute;
+    top: calc(100% + 5px);
+    left: -2px;
+    padding: 5px;
+
+    input {
+        width: 100%;
+    }
+
+    textarea {
+        width: 100%;
+        height: 30px;
+        resize: vertical;
+        padding: 3px 5px;
+    }
+
+    & > * {
+        visibility: hidden;
+    }
+}
+
+.addTableBtnDropDownOpen {
+    & > * {
+        visibility: visible;
+    }
+    visibility: visible;
+    width: 200px;
+    opacity: 1;
 }

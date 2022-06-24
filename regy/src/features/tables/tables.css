@@ -1,14 +1,16 @@
 .tablesContainer {
   width: 100%;
   height: 40px;
-  margin: 10px 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 3px;
   scroll-behavior: smooth;
+  margin: 10px 0;
 }
-.tablesContainer .addTableBtn-left {
+.tablesContainer .addTableBtn {
+  position: relative;
+  border: none;
   background-color: #F5C6AA;
   height: 40px;
   width: 40px;
@@ -16,22 +18,29 @@
   text-align: center;
   color: white;
   border-left: 2px solid #faab7d;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   transition: all 0.3s ease;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
-.tablesContainer .addTableBtn-left span {
+.tablesContainer .addTableBtn span {
   height: 40px;
-  line-height: 100%;
+  width: 100%;
+  display: block;
+  line-height: 125%;
   text-align: center;
   font-size: 2rem;
-  color: inherit;
-}
-.tablesContainer .addTableBtn-left:hover {
-  color: #fb8947;
   cursor: pointer;
+  transition: transform 0.5s;
+}
+.tablesContainer .addTableBtn:hover {
+  color: #fb8947;
   background-color: #f9d9c6;
+}
+.tablesContainer .activeDropDownBtn {
+  transform: rotate(45deg) scale(1.2);
+  color: rgb(186, 61, 33);
 }
 .tablesContainer .tableItemsContainer {
   width: 100%;
@@ -57,4 +66,41 @@
 .tablesContainer .tableItemsContainer::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background-color: #96652d;
+}
+
+.addTableBtnDropDown {
+  transition: width 0.2s ease-in-out, opacity 0.3s ease-in-out, visibility 0.5s ease-in-out;
+  color: white;
+  opacity: 0;
+  visibility: hidden;
+  width: 0;
+  height: auto;
+  background-color: #fcba93;
+  font-size: 1rem;
+  border-radius: 5px;
+  position: absolute;
+  top: calc(100% + 5px);
+  left: -2px;
+  padding: 5px;
+}
+.addTableBtnDropDown input {
+  width: 100%;
+}
+.addTableBtnDropDown textarea {
+  width: 100%;
+  height: 30px;
+  resize: vertical;
+  padding: 3px 5px;
+}
+.addTableBtnDropDown > * {
+  visibility: hidden;
+}
+
+.addTableBtnDropDownOpen {
+  visibility: visible;
+  width: 200px;
+  opacity: 1;
+}
+.addTableBtnDropDownOpen > * {
+  visibility: visible;
 }/*# sourceMappingURL=tables.css.map */
