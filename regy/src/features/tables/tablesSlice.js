@@ -1,24 +1,28 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = {'1': {title: 'Courses', id: 1, columns: ['Name', 'Score', 'Level']},
-'2': {title: 'Courses2', id: 2, columns: ['Name', 'Score', 'Level']},
-'3': {title: 'Courses3', id: 3, columns: ['Name', 'Score', 'Level']}};
+const initialState = {'1': {title: 'Course1', id: 1, columns: ['Name', 'Score', 'Level']},
+'2': {title: 'Course2', id: 2, columns: ['Name', 'Score', 'Level', 'Defficulty']}};
 
 export const tablesSlice = createSlice({
   name: 'tables',
   initialState,
   reducers: {
-    add: (state, action) => {
-      state.tables[action.payload.id] = {id: action.payload.id, title: action.payload.title};
+    addTable: (state, action) => {
+      const id = Object.keys(state).length + 1;
+      state[id] = {
+                    id: id,
+                    title: action.payload.title,
+                    columns: action.payload.columns
+                  };
     },
-    remove: (state, action) => {
-      delete state.tables[action.payload.id];
+    removeTable: (state, action) => {
+      delete state[action.payload.id];
     }
   }
 });
 
 export const selectTables = (state) => state.tables;
 
-export const { add, remove } = tablesSlice.actions;
+export const { addTable, removeTable } = tablesSlice.actions;
 
 export default tablesSlice.reducer;

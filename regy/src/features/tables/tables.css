@@ -81,6 +81,7 @@
   height: auto;
   background-color: #fcba93;
   font-size: 1rem;
+  font-weight: bold;
   border-radius: 5px;
   position: absolute;
   top: calc(100% + 5px);
@@ -89,12 +90,31 @@
 }
 .addTableBtnDropDown input {
   width: 100%;
+  padding: 3px 5px;
+}
+.addTableBtnDropDown input:focus {
+  outline: none;
+}
+.addTableBtnDropDown input[type=submit] {
+  border: none;
+  padding: 4px 0;
+  border-radius: 2px;
+  background-color: #d66625;
+  cursor: pointer;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.744);
+}
+.addTableBtnDropDown input[type=submit]:hover {
+  background-color: #d97b45;
 }
 .addTableBtnDropDown textarea {
   width: 100%;
-  height: 30px;
+  height: 40px;
   resize: vertical;
   padding: 3px 5px;
+}
+.addTableBtnDropDown textarea:focus {
+  outline: none;
 }
 
 .addTableBtnDropDownOpen {
