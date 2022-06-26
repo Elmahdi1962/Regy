@@ -7,7 +7,8 @@ function RowItem({ row=null, isHeader=false, columns=null}) {
         isHeader ?
           columns.map((col) => <th scope="col" key={col}>{col}</th>)
         :
-          Object.values(row).map((val) => <td key={val}>{val}</td>)
+          columns.map((val) => 
+          <td key={row[val]}>{row[val]}</td>)
       }
     </tr>  
   )

@@ -1,7 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = {'1': {title: 'Course1', id: 1, columns: ['Name', 'Score', 'Level']},
-'2': {title: 'Course2', id: 2, columns: ['Name', 'Score', 'Level', 'Defficulty']}};
+const initialState = {};
 
 export const tablesSlice = createSlice({
   name: 'tables',
