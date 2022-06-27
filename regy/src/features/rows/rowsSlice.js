@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { nanoid } from 'nanoid';
 
 const initialState = {};
 
@@ -7,7 +8,8 @@ export const rowsSlice = createSlice({
   initialState,
   reducers: {
     addRow: (state, action) => {
-      state[action.payload.id] = action.payload;
+      const id = nanoid();
+      state[id] = {...action.payload, id};
     },
     removeRow: (state, action) => {
       delete state[action.payload.id];

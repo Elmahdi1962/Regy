@@ -73,6 +73,7 @@
 }
 
 .addTableBtnDropDown {
+  z-index: 100;
   transition: width 0.2s ease-in-out, opacity 0.2s ease-in-out, visibility 0.3s ease-in-out;
   color: white;
   opacity: 0;

@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { nanoid } from 'nanoid';
 
 const initialState = {};
 
@@ -7,7 +8,7 @@ export const tablesSlice = createSlice({
   initialState,
   reducers: {
     addTable: (state, action) => {
-      const id = Object.keys(state).length + 1;
+      const id = nanoid();
       state[id] = {
                     id: id,
                     title: action.payload.title,

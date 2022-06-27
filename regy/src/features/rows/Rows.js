@@ -17,13 +17,11 @@ function Rows() {
   const handleNewRowSubmit = (e) => {
     e.preventDefault();
     const rowdata = {};
-    const id = `${tableId}-${Object.keys(rows).length + 1}`;
     for(const elem of e.target.elements) {
       if(elem.type !== 'submit') {
         rowdata[elem.name] = elem.value;
       }
     }
-    rowdata.id = id;
     rowdata.tableId = tableId;
     dispatch(addRow(rowdata));
     form.current.reset();

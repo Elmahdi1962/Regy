@@ -43,7 +43,7 @@ function Tables() {
             Object.entries(tables).map(([key, value]) => 
             <TableItem table={value} key={key}/>)
           :
-            <TableItem table={{title:'No Table', key:5}}/>
+            <></>
         }
       </div>
     </div>

@@ -4,6 +4,16 @@
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
 
+    thead, tbody {
+        width: 100% !important;
+    }
+
+    tbody {
+        tr {
+            position: relative;
+        }
+    }
+
     tr:nth-child(even){background-color: #f7e8ce;}
 
     th {
@@ -14,12 +24,16 @@
         color: rgb(51, 47, 19);
     }
 
-    tr:hover {
-        background-color: rgb(216, 210, 194);
-        td {
-            border-color: white;
+    tr{
+        height: 36px;
+        &:hover {
+            background-color: rgb(216, 210, 194);
+            td {
+                border-color: white;
+            }
         }
     }
+
 
     td, th {
         border: 1px solid rgb(196, 195, 195);
@@ -63,5 +77,28 @@
         &:hover {
             background-color: #30d6b2;
         }
+    }
+}
+
+.deleteRowBtn {
+    width: 15px !important;
+    position: absolute;
+    right: 5px;
+    top: 0;
+    bottom: 0;
+    border: none !important;
+    background-color: transparent;
+    font-weight: bold;
+    font-size: 1rem;
+    color: rgb(251, 62, 93);
+    cursor: pointer;
+    height: 36px;
+    line-height: 20px;
+    text-align: center;
+    transition: all .2s ease-in-out;
+
+    &:hover {
+        color: red;
+        transform: scale(1.3);
     }
 }
