@@ -5,6 +5,7 @@ import { selectRows, selectHeader, addRow } from './rowsSlice'
 import { selectSelectedTableId } from '../selection/selectionSlice'
 import { selectTables } from '../tables/tablesSlice'
 import { useSelector, useDispatch } from 'react-redux'
+import { BsFillGearFill } from 'react-icons/bs';
 
 function Rows() {
   const form = useRef();
@@ -18,7 +19,7 @@ function Rows() {
     e.preventDefault();
     const rowdata = {};
     for(const elem of e.target.elements) {
-      if(elem.type !== 'submit') {
+      if(elem.type !== 'submit' && header.includes(elem.name)) {
         rowdata[elem.name] = elem.value;
       }
     }
@@ -41,6 +42,9 @@ function Rows() {
       }
 
       <div className='currentTableContainer'>
+        <div className='tableSettings'>
+          <BsFillGearFill/>
+        </div>
         <table className='currentTable'>
           {tableId ?
             <>
