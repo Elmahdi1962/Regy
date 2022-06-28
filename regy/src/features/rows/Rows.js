@@ -7,7 +7,7 @@ import { BsFillGearFill } from 'react-icons/bs';
 import { AiFillDelete } from 'react-icons/ai';
 import { MdEdit } from 'react-icons/md';
 
-import { selectTable, clearSelectedTable, selectSelectedTableId  } from '../selection/selectionSlice';
+import { clearSelectedTable, selectSelectedTableId  } from '../selection/selectionSlice';
 import { removeTable, selectTables } from '../tables/tablesSlice';
 import { removeRowsOfTable } from '../rows/rowsSlice';
 

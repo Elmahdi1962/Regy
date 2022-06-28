@@ -1,6 +1,7 @@
 .currentTableContainer {
   max-width: 100vw;
   overflow-x: auto;
+  overflow-y: hidden;
 }
 
 .currentTable {
