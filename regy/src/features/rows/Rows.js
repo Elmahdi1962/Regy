@@ -1,11 +1,15 @@
-import React, { useRef } from 'react'
-import RowItem from './RowItem'
-import './rows.css'
-import { selectRows, selectHeader, addRow } from './rowsSlice'
-import { selectSelectedTableId } from '../selection/selectionSlice'
-import { selectTables } from '../tables/tablesSlice'
-import { useSelector, useDispatch } from 'react-redux'
+import React, { useRef } from 'react';
+import RowItem from './RowItem';
+import './rows.css';
+import { selectRows, selectHeader, addRow } from './rowsSlice';
+import { useSelector, useDispatch } from 'react-redux';
 import { BsFillGearFill } from 'react-icons/bs';
+import { AiFillDelete } from 'react-icons/ai';
+import { MdEdit } from 'react-icons/md';
+
+import { selectTable, clearSelectedTable, selectSelectedTableId  } from '../selection/selectionSlice';
+import { removeTable, selectTables } from '../tables/tablesSlice';
+import { removeRowsOfTable } from '../rows/rowsSlice';
 
 function Rows() {
   const form = useRef();
@@ -14,6 +18,19 @@ function Rows() {
   const tableId = useSelector(selectSelectedTableId);
   const rows = useSelector(selectRows(tableId));
   const header = useSelector(selectHeader(tableId)); // columns
+
+  const handleTableDelete = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const id = tableId;
+    const tableTitle = tables[id].title;
+    const confirmDelete = window.confirm(`Do You Really want To delete the ${tableTitle} Table?`);
+    if (confirmDelete) {
+      dispatch(clearSelectedTable());
+      dispatch(removeRowsOfTable({tableId: id}));
+      dispatch(removeTable({id}))
+    }
+  };
 
   const handleNewRowSubmit = (e) => {
     e.preventDefault();
@@ -42,9 +59,21 @@ function Rows() {
       }
 
       <div className='currentTableContainer'>
-        <div className='tableSettings'>
-          <BsFillGearFill/>
-        </div>
+        {tableId &&
+          <div className='tableSettings'>
+            <BsFillGearFill className='gearIcon'/>
+            <div className='tableSettingsMenu'>
+              <div className='tableSettingsDeleteBtn' onClick={handleTableDelete}>
+                <AiFillDelete />
+                <p>Delete</p>
+              </div>
+              <div className='tableSettingsEditBtn'>
+                <MdEdit />
+                <p>Edit</p>
+              </div>
+            </div>
+          </div>
+        }
         <table className='currentTable'>
           {tableId ?
             <>

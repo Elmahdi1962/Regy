@@ -96,4 +96,105 @@
 .deleteRowBtn:hover {
   color: red;
   transform: scale(1.3);
+}
+
+.tableSettings {
+  position: relative;
+  width: 18px;
+  margin-top: 25px;
+  overflow: visible;
+}
+.tableSettings:hover .gearIcon {
+  transform: rotate(100deg);
+}
+.tableSettings:hover .tableSettingsMenu {
+  visibility: visible;
+}
+.tableSettings svg {
+  color: rgb(51, 47, 19);
+  cursor: pointer;
+  font-size: 18px;
+}
+.tableSettings .gearIcon {
+  transition: transform 0.3s ease-in-out;
+}
+.tableSettings .tableSettingsMenu {
+  transition: all 0.3s ease-in-out;
+  display: block;
+  visibility: hidden;
+  position: absolute;
+  background-color: #e4cb9e;
+  border-radius: 3px;
+  bottom: 2px;
+  left: 20px;
+  width: 90px;
+  padding: 3px;
+}
+.tableSettings .tableSettingsMenu .tableSettingsDeleteBtn {
+  height: 18px;
+  display: flex;
+  justify-content: start;
+  gap: 5px;
+  align-items: center;
+  cursor: pointer;
+  padding-left: 5px;
+}
+.tableSettings .tableSettingsMenu .tableSettingsDeleteBtn:hover {
+  background-color: #f9ecd5;
+}
+.tableSettings .tableSettingsMenu .tableSettingsDeleteBtn:hover svg {
+  -webkit-animation: iconWiggle 1s linear 1;
+          animation: iconWiggle 1s linear 1;
+}
+.tableSettings .tableSettingsMenu .tableSettingsEditBtn {
+  height: 18px;
+  display: flex;
+  justify-content: start;
+  gap: 5px;
+  align-items: center;
+  padding: 2px;
+  cursor: pointer;
+}
+.tableSettings .tableSettingsMenu .tableSettingsEditBtn:hover {
+  background-color: #f9ecd5;
+}
+.tableSettings .tableSettingsMenu .tableSettingsEditBtn:hover svg {
+  -webkit-animation: iconWiggle 1s linear 1;
+          animation: iconWiggle 1s linear 1;
+}
+
+@-webkit-keyframes iconWiggle {
+  0% {
+    transform: rotate(20deg);
+  }
+  25% {
+    transform: rotate(-20deg);
+  }
+  50% {
+    transform: rotate(20deg);
+  }
+  75% {
+    transform: rotate(-20deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+
+@keyframes iconWiggle {
+  0% {
+    transform: rotate(20deg);
+  }
+  25% {
+    transform: rotate(-20deg);
+  }
+  50% {
+    transform: rotate(20deg);
+  }
+  75% {
+    transform: rotate(-20deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
 }/*# sourceMappingURL=rows.css.map */
