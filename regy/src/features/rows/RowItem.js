@@ -6,8 +6,11 @@ function RowItem({ row=null, isHeader=false, columns=null}) {
   const dispatch = useDispatch();
   const handleRowDelete = (e) => {
     const id = row.id;
+    const confirmDelete = window.confirm('Do you really want to delete this row?');
     e.preventDefault();
-    dispatch(removeRow({id}));
+    if (confirmDelete) {
+      dispatch(removeRow({id}));
+    }
   };
 
   return (
