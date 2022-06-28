@@ -1,3 +1,7 @@
+.currentTableContainer {
+    max-width: 100vw;
+    overflow-x: auto;
+}
 .currentTable {
     width: 100%;
     background-color: white;
@@ -44,6 +48,10 @@
             width: 100%;
         }
     }
+
+    td:last-child{
+        padding-right: 15px;
+    }
 }
 
 .newRowForm {
@@ -83,7 +91,7 @@
 .deleteRowBtn {
     width: 15px !important;
     position: absolute;
-    right: 5px;
+    right: 3px;
     top: 0;
     bottom: 0;
     border: none !important;

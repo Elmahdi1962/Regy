@@ -17,7 +17,7 @@ function Tables() {
   const handleNewTableSubmit = (e) => {
     e.preventDefault();
     const title = e.target.title.value;
-    const columns = e.target.columns.value.replace(/(\r\n|\n|\r|\s)/gm, "").split(',');
+    const columns = e.target.columns.value.replace(/(\r\n|\n|\r|\s|,\s*$|,\s*,)/gm, "").split(',');
     dispatch(addTable({title, columns}));
     dropdown.current.click();
   };

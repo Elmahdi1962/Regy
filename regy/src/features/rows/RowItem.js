@@ -17,13 +17,13 @@ function RowItem({ row=null, isHeader=false, columns=null}) {
     <tr>
       {
         isHeader ?
-          columns.map((col) => <th scope="col" key={col}>{col}</th>)
+          columns.map((col, index) => <th scope="col" key={index}>{col}</th>)
         :
           columns.map((val, idx) =>
             idx !== (columns.length - 1) ?
-              <td key={row[val]}>{row[val]}</td>
+              <td key={idx}>{row[val]}</td>
             :
-              <td key={row[val]} style={{position: 'relative'}}>{row[val]}
+              <td key={idx} style={{position: 'relative'}}>{row[val]}
                 <button className="deleteRowBtn" onClick={handleRowDelete}>X</button>
               </td>
           )

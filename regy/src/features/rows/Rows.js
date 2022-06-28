@@ -40,32 +40,34 @@ function Rows() {
       </form>
       }
 
-      <table className='currentTable'>
-        {tableId ?
-          <>
-            <thead>
-              <tr>
-                <th colSpan={header.length}>{tables[tableId].title}</th>
-              </tr>
-              <RowItem isHeader={true} columns={header}/>
-            </thead>
+      <div className='currentTableContainer'>
+        <table className='currentTable'>
+          {tableId ?
+            <>
+              <thead>
+                <tr>
+                  <th colSpan={header.length}>{tables[tableId].title}</th>
+                </tr>
+                <RowItem isHeader={true} columns={header}/>
+              </thead>
+              <tbody>
+                {
+                  rows && rows.length > 0 ?
+                    rows.map((val) => <RowItem isHeader={false} row={val} columns={header} key={val.id + 4}/>)
+                  :
+                    <tr><td colSpan={header.length}>Table Empty</td></tr>
+                }
+              </tbody>
+            </>
+          :
             <tbody>
-              {
-                rows && rows.length > 0 ?
-                  rows.map((val) => <RowItem isHeader={false} row={val} columns={header} key={val.id + 4}/>)
-                :
-                  <tr><td colSpan={header.length}>Table Empty</td></tr>
-              }
+              <tr>
+                <td>No Table Selected</td>
+              </tr>
             </tbody>
-          </>
-        :
-          <tbody>
-            <tr>
-              <td>No Table Selected</td>
-            </tr>
-          </tbody>
-        }
-      </table>
+          }
+        </table>
+      </div>
     </>
   )
 }
