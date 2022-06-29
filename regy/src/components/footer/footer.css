@@ -8,7 +8,8 @@ footer {
     padding: 5px 0;
     border-radius: 2px;
     cursor: pointer;
-    margin-top: 10px;
+    margin-top: 20px;
+    z-index: 2;
 }
 
 small {
@@ -18,4 +19,52 @@ small {
 
 small:hover {
     color: rgb(210, 139, 7);
+}
+
+small:hover + .name {
+    color: white;
+}
+
+.name {
+    color:rgb(210, 139, 7);
+    font-weight: bold;
+    margin-left: 3px;
+    position: relative;
+}
+
+
+
+.links{
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    width: 50px;
+    left: 40px;
+    transform-origin: 0% 50%;
+    transition: all .3s ease-in-out;
+}
+
+.links svg {
+    color: rgb(103, 75, 21);
+    margin-left: 60%;
+    margin-top: 3px;
+    transform: rotate(90deg);
+    border-radius: 50%;
+    font-size: 1.3rem;
+}
+
+.name:hover .linkedinLink {
+    opacity: 1;
+    visibility: visible;
+    transform: rotate(-100deg);
+}
+
+.name:hover .githubLink {
+    opacity: 1;
+    visibility: visible;
+    transform: rotate(-60deg);
+}
+
+.links svg:hover {
+    color: rgb(143, 109, 41);
 }
