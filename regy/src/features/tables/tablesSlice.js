@@ -17,12 +17,15 @@ export const tablesSlice = createSlice({
     },
     removeTable: (state, action) => {
       delete state[action.payload.id];
+    },
+    renameTable: (state, action) => {
+      state[action.payload.id] = {...state[action.payload.id], title: action.payload.title};
     }
   }
 });
 
 export const selectTables = (state) => state.tables;
 
-export const { addTable, removeTable } = tablesSlice.actions;
+export const { addTable, removeTable, renameTable } = tablesSlice.actions;
 
 export default tablesSlice.reducer;

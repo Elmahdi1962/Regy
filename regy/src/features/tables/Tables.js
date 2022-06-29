@@ -6,6 +6,7 @@ import './tables.css';
 
 function Tables() {
   const dropdown = useRef();
+  const form = useRef();
   const dispatch = useDispatch();
   const tables = useSelector(selectTables);
   const handleDropDownClick = (e) => {
@@ -20,6 +21,7 @@ function Tables() {
     const columns = e.target.columns.value.replace(/(\r\n|\n|\r|\s|,\s*$|,\s*,)/gm, "").split(',');
     dispatch(addTable({title, columns}));
     dropdown.current.click();
+    form.current.reset();
   };
 
   return (
@@ -27,7 +29,7 @@ function Tables() {
       <button className='addTableBtn' >
         <span onClick={handleDropDownClick} ref={dropdown}>+</span>
         <div className="addTableBtnDropDown" onClick={(e)=>{e.stopPropagation();}}>
-          <form onSubmit={handleNewTableSubmit}>
+          <form onSubmit={handleNewTableSubmit} ref={form}>
             <label htmlFor="title">Title</label>
             <input name="title" type="text" placeholder="Table Title" required/>
             <label htmlFor="columns">Columns</label>

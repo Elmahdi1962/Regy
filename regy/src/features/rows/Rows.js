@@ -8,7 +8,7 @@ import { AiFillDelete } from 'react-icons/ai';
 import { MdEdit } from 'react-icons/md';
 
 import { clearSelectedTable, selectSelectedTableId  } from '../selection/selectionSlice';
-import { removeTable, selectTables } from '../tables/tablesSlice';
+import { removeTable, selectTables, renameTable } from '../tables/tablesSlice';
 import { removeRowsOfTable } from '../rows/rowsSlice';
 
 function Rows() {
@@ -31,6 +31,16 @@ function Rows() {
       dispatch(removeTable({id}))
     }
   };
+
+  const handleTableRename = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const id = tableId;
+    const new_title = window.prompt('Type in your new table title :');
+    if(new_title && new_title !== '' && new_title.search(/^\s*$/) == -1) {
+      dispatch(renameTable({id, title: new_title.trim()}));
+    }
+  }
 
   const handleNewRowSubmit = (e) => {
     e.preventDefault();
@@ -67,9 +77,9 @@ function Rows() {
                 <AiFillDelete />
                 <p>Delete</p>
               </div>
-              <div className='tableSettingsEditBtn'>
+              <div className='tableSettingsEditBtn' onClick={handleTableRename}>
                 <MdEdit />
-                <p>Edit</p>
+                <p>Rename</p>
               </div>
             </div>
           </div>
