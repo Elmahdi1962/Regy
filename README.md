@@ -4,9 +4,9 @@ General Purpose Registry
 ## Quick Start
 - clone the repository and cd to regy folder
 - install dependencies
-    npm i
+    `npm i`
 - start the app
-    npm start
+    `npm start`
 
 ## Contributing
 If you would like to contribute to the project, you may create a Pull Request containing your proposed changes and we will review it as soon as we are able! Please review our [contributing guidelines](CODE_OF_CONDUCT.md) first.
