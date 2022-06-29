@@ -19,7 +19,7 @@ function TableItem({ table }) {
     if(table.id !== selectedTableId) {
       setSelected(false);
     }
-  }, [selected, selectedTableId])
+  }, [selected, selectedTableId, table.id])
   
 
   return (

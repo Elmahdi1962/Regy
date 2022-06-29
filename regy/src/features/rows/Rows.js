@@ -37,7 +37,7 @@ function Rows() {
     e.stopPropagation();
     const id = tableId;
     const new_title = window.prompt('Type in your new table title :');
-    if(new_title && new_title !== '' && new_title.search(/^\s*$/) == -1) {
+    if(new_title && new_title !== '' && new_title.search(/^\s*$/) === -1) {
       dispatch(renameTable({id, title: new_title.trim()}));
     }
   }

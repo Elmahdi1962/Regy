@@ -18,9 +18,10 @@ export const rowsSlice = createSlice({
       const tableid = action.payload.tableId;
       const toDelete = [];
       Object.entries(state).map(([key, value]) => {
-        if(value.tableId == tableid) {
+        if(value.tableId === tableid) {
           toDelete.push(key);
         }
+        return value;
       });
 
       for(const k of toDelete) {
